@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Clínica Fipod · Propuesta de Smart Compound</title>
+<meta name="description" content="Más pacientes, que vuelvan y la agenda en automático: propuesta de Smart Compound (Meta Tech Provider) para Clínica Fipod.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Clínica Fipod · Más pacientes, que vuelvan y la agenda en automático">
+<meta property="og:description" content="Fipod ya es la mejor valorada. Ahora, que sea la primera que se encuentra. Propuesta de Smart Compound (Meta Tech Provider).">
+<meta property="og:url" content="https://htremc.github.io/fipod-propuesta/">
+<meta name="theme-color" content="#0A1424">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* Layout: portada en marino de COMPOUND y una «hoja» crema con el análisis, como la propuesta de TAKKRA; botón de reunión siempre visible abajo. Look único y deliberado (oscuro), colores explícitos. */
+:root{
+  --navy:#0A1424; --navy-2:#0F1D33; --navy-3:#13263F;
+  --mint:#19D3A2; --mint-ink:#06121F; --mint-text:#0A7358; --mint-soft:rgba(25,211,162,.16);
+  --cream:#F4F1E8; --paper:#FFFFFF; --ink:#0A1424; --ink-2:#3B4656; --mute:#5B6472; --line:#E3DECF;
+  --on-navy:#FFFFFF; --on-navy-2:#C9D4E0; --on-navy-3:#8FA0B4; --line-dark:rgba(255,255,255,.10);
+  --sans:"Archivo", "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  --w:68rem;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--navy); color:var(--on-navy); font-family:var(--sans); font-size:17px; line-height:1.55; -webkit-font-smoothing:antialiased; padding-bottom:calc(86px + env(safe-area-inset-bottom, 0px))}
+.bg{position:fixed; inset:0; z-index:-1; pointer-events:none;
+  background:radial-gradient(110% 60% at 100% 0%, rgba(25,211,162,.20), transparent 60%),
+    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px) 0 0/36px 36px,
+    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px) 0 0/36px 36px, var(--navy)}
+a{color:inherit}
+a:focus-visible, summary:focus-visible{outline:3px solid var(--mint); outline-offset:3px; border-radius:6px}
+.wrap{padding-left:max(16px, env(safe-area-inset-left, 0px)); padding-right:max(16px, env(safe-area-inset-right, 0px))}
+.in{max-width:var(--w); margin-inline:auto}
+h1,h2,h3,h4{margin:0; text-wrap:balance}
+p{margin:0}
+.num{font-variant-numeric:tabular-nums}
+em{font-style:normal}
+
+/* ---------- Portada ---------- */
+.top{display:flex; flex-wrap:wrap; gap:10px; justify-content:space-between; align-items:center; padding-block:20px 6px; font-size:12px; letter-spacing:.2em; font-weight:800}
+.top b{color:var(--mint)}
+.chip{border:1px solid rgba(25,211,162,.55); color:var(--mint); border-radius:99px; padding:5px 12px; font-size:11px; letter-spacing:.14em; font-weight:800}
+.hero{display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr); gap:clamp(24px,4vw,56px); align-items:center; padding-block:clamp(28px,5vw,56px) clamp(36px,6vw,72px)}
+.eyebrow{font-size:12.5px; letter-spacing:.32em; font-weight:800; color:var(--mint); text-transform:uppercase; text-shadow:0 0 14px rgba(25,211,162,.45)}
+.hero h1{margin-top:16px; font-size:clamp(2.5rem,6vw,4.3rem); line-height:1; font-weight:900; letter-spacing:-.03em}
+.hero h1 em{color:var(--mint)}
+.hero .sub{margin-top:16px; font-size:clamp(1.15rem,2.2vw,1.35rem); font-weight:800}
+.hero .sub span{color:var(--mint)}
+.hero .lead{margin-top:18px; font-size:1.06rem; color:var(--on-navy-2); max-width:36rem}
+.hero .lead b{color:var(--on-navy)}
+.btns{display:flex; flex-wrap:wrap; gap:12px; margin-top:26px}
+.btn{display:inline-flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; text-decoration:none; background:var(--mint); color:var(--mint-ink); font-weight:900; font-size:17px; letter-spacing:.02em; border-radius:14px; padding:14px 22px; box-shadow:0 0 0 5px rgba(25,211,162,.22)}
+.btn small{font-size:11.5px; font-weight:700; opacity:.8; margin-top:2px; letter-spacing:0}
+.btn.ghost{background:transparent; color:var(--on-navy); box-shadow:none; border:1.5px solid rgba(255,255,255,.35)}
+.potential{position:relative; background:linear-gradient(140deg, var(--navy-2), #0B2E2B); border:1px solid rgba(25,211,162,.45); border-radius:24px; padding:26px 24px 22px; overflow:hidden}
+.potential::after{content:""; position:absolute; right:-60px; top:-60px; width:220px; height:220px; border-radius:50%; background:radial-gradient(circle, rgba(25,211,162,.35), transparent 70%); pointer-events:none}
+.potential .k{font-size:12px; letter-spacing:.22em; font-weight:800; color:var(--mint)}
+.potential .big{margin-top:10px; font-size:clamp(3rem,7vw,4.6rem); line-height:.9; font-weight:900; letter-spacing:-.04em; color:var(--mint); text-shadow:0 0 30px rgba(25,211,162,.35)}
+.potential .big small{display:block; margin-top:8px; font-size:1.15rem; letter-spacing:0; color:var(--on-navy); text-shadow:none}
+.potential p{margin-top:12px; font-size:.95rem; color:var(--on-navy-2)}
+.potential p b{color:var(--on-navy)}
+.reformer{display:block; width:100%; height:auto; margin-top:16px}
+.reformer .l{fill:none; stroke:var(--mint); stroke-width:3; stroke-linecap:round; stroke-linejoin:round}
+.reformer .s{fill:none; stroke:var(--on-navy-3); stroke-width:2; stroke-linejoin:round}
+.reformer .springs{transform-box:view-box; transform-origin:62px 0}
+@media (prefers-reduced-motion: no-preference){
+  .reformer .carriage{animation:slide 6s cubic-bezier(.45,0,.25,1) 1s infinite}
+  .reformer .springs{animation:stretch 6s cubic-bezier(.45,0,.25,1) 1s infinite}
+}
+@keyframes slide{0%,15%{transform:translateX(0)} 45%,58%{transform:translateX(46px)} 88%,100%{transform:translateX(0)}}
+@keyframes stretch{0%,15%{transform:scaleX(1)} 45%,58%{transform:scaleX(1.66)} 88%,100%{transform:scaleX(1)}}
+
+/* ---------- Hoja crema ---------- */
+.sheet{background:var(--cream); color:var(--ink); border-radius:30px; padding:clamp(18px,3.4vw,40px); display:grid; gap:clamp(18px,2.6vw,28px)}
+.sheet mark{background:linear-gradient(transparent 52%, rgba(25,211,162,.42) 52%); color:inherit; padding:0 .08em}
+.sec-h{display:flex; flex-wrap:wrap; justify-content:space-between; align-items:baseline; gap:6px 20px; margin-bottom:16px}
+.sec-h h2{font-size:clamp(1.6rem,3.4vw,2.3rem); line-height:1.05; font-weight:900; letter-spacing:-.015em; text-transform:uppercase}
+.sec-h .tg{font-size:11px; letter-spacing:.18em; font-weight:800; color:var(--mint-text); text-transform:uppercase}
+.intro{font-size:1.06rem; color:var(--ink-2); max-width:44rem}
+.intro b{color:var(--ink)}
+.block{background:var(--paper); border:1px solid var(--line); border-radius:22px; padding:clamp(18px,2.6vw,28px)}
+.tag{display:inline-block; background:var(--mint); color:var(--mint-ink); border-radius:8px; padding:5px 10px; font-size:12px; font-weight:900; letter-spacing:.08em; text-transform:uppercase}
+.tag.dark{background:var(--navy); color:var(--mint)}
+
+/* Potencial (franja verde con tarjetas marino) */
+.mintband{background:linear-gradient(135deg, #19D3A2, #12B98C); border-radius:22px; padding:clamp(16px,2.4vw,24px)}
+.mintband .sec-h h2, .mintband .sec-h .tg{color:var(--mint-ink)}
+.mintband .sec-h .tg{opacity:.8}
+.cards3{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px}
+.ncard{background:var(--navy); color:var(--on-navy); border-radius:16px; padding:16px 16px 15px; box-shadow:0 4px 0 rgba(6,18,31,.28); display:grid; gap:8px; align-content:start}
+.ncard .bigline{font-size:1.45rem; line-height:1.1; font-weight:900}
+.ncard .bigline em{color:var(--mint)}
+.ncard .sm{font-size:.92rem; color:var(--on-navy-2)}
+.total{margin-top:12px; display:grid; grid-template-columns:auto minmax(0,1fr); gap:6px 22px; align-items:center; background:var(--navy); color:var(--on-navy); border-radius:16px; padding:18px 20px}
+.total .n{font-size:clamp(2.2rem,5vw,3.2rem); line-height:1; font-weight:900; color:var(--mint); letter-spacing:-.03em}
+.total .t{font-size:1.02rem; font-weight:700}
+.total .t span{display:block; font-weight:500; font-size:.88rem; color:var(--on-navy-3); margin-top:3px}
+
+/* Lo que ya tenéis */
+.strengths{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px}
+.st{background:var(--paper); border:1px solid var(--line); border-radius:16px; padding:16px; display:grid; gap:6px; align-content:start; min-width:0}
+.st .v.txt{font-size:1.35rem; line-height:1.1}
+.st .v{font-size:1.9rem; line-height:1; font-weight:900; letter-spacing:-.02em}
+.st .v small{font-size:.95rem; font-weight:700; color:var(--mute); letter-spacing:0}
+.st p{font-size:.9rem; color:var(--ink-2)}
+
+/* Gráficos */
+.charts{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin-top:18px}
+.chart{min-width:0}
+.chart h3{font-size:1.05rem; font-weight:800}
+.chart .cap{font-size:.86rem; color:var(--mute); margin:3px 0 14px}
+.bars{display:grid; gap:12px}
+.row, .axis{display:grid; grid-template-columns:6.4rem minmax(0,1fr) 7.2rem; gap:.6rem; align-items:center}
+.lab{font-size:.9rem; color:var(--ink-2); line-height:1.2}
+.lab b{display:block; color:var(--ink); font-weight:800}
+.track{position:relative; height:30px; border-left:1.5px solid #9AA4AE; border-right:1px solid var(--line); background:linear-gradient(to right, var(--line) 1px, transparent 1px) 0 0/33.333% 100% repeat-x}
+.fill{position:absolute; left:0; top:5px; height:20px; background:#0FA07C; border-radius:0 4px 4px 0; min-width:3px}
+.val{font-family:var(--mono); font-size:12.5px; font-weight:600; text-align:right; white-space:nowrap}
+.val small{color:var(--mute); font-weight:500}
+.axis div{position:relative; height:16px; font-family:var(--mono); font-size:11px; color:var(--mute)}
+.axis div span{position:absolute; transform:translateX(-50%)}
+.axis div span:first-child{transform:none}
+.axis div span:last-child{transform:translateX(-100%)}
+.facts{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin-top:16px}
+.fact{border-top:3px solid var(--mint); padding-top:10px; font-size:.95rem; color:var(--ink-2)}
+.fact b{display:block; font-size:1.25rem; line-height:1.15; color:var(--ink); font-weight:900; margin-bottom:4px}
+
+/* Fugas */
+.journey{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:12px; counter-reset:paso}
+.step{position:relative; background:var(--paper); border:1px solid var(--line); border-radius:16px; padding:16px 14px; display:grid; gap:8px; align-content:start; counter-increment:paso}
+.step .st-k{font-family:var(--mono); font-size:11.5px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--mint-text)}
+.step .st-k::before{content:counter(paso) " · "}
+.step h3{font-size:1.04rem; line-height:1.2; font-weight:900}
+.step p{font-size:.88rem; color:var(--ink-2)}
+
+/* Lo que implementamos */
+.pillars{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px}
+.pillar{background:var(--navy); color:var(--on-navy); border-radius:20px; padding:20px 18px; display:grid; gap:12px; align-content:start}
+.pillar h3{font-size:1.5rem; line-height:1.05; font-weight:900; letter-spacing:-.01em}
+.pillar h3 em{color:var(--mint)}
+.pillar ul{margin:0; padding:0; list-style:none; display:grid; gap:9px}
+.pillar li{display:grid; grid-template-columns:16px minmax(0,1fr); gap:9px; font-size:.93rem; color:var(--on-navy-2)}
+.pillar li::before{content:""; width:10px; height:10px; margin-top:6px; border-radius:3px; background:var(--mint)}
+.pillar li b{color:var(--on-navy)}
+.impact{margin-top:auto; border-top:1px solid var(--line-dark); padding-top:12px; font-size:.95rem; font-weight:800}
+.impact em{color:var(--mint)}
+
+/* Web 3D */
+.web3d{display:grid; grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr); gap:24px; align-items:center; background:linear-gradient(120deg, var(--navy), #0B2E2B); color:var(--on-navy); border:1px solid rgba(25,211,162,.45); border-radius:22px; padding:clamp(20px,3vw,32px)}
+.web3d h2{font-size:clamp(1.6rem,3.6vw,2.4rem); line-height:1.05; font-weight:900; letter-spacing:-.02em}
+.web3d h2 em{color:var(--mint)}
+.web3d p{margin-top:12px; color:var(--on-navy-2)}
+.web3d p b{color:var(--on-navy)}
+.web3d ul{margin:14px 0 0; padding:0; list-style:none; display:flex; flex-wrap:wrap; gap:8px}
+.web3d li{border:1px solid rgba(25,211,162,.5); color:var(--mint); border-radius:99px; padding:5px 11px; font-size:.82rem; font-weight:700}
+.cube{width:100%; max-width:260px; aspect-ratio:1; justify-self:center}
+.cube .l{fill:none; stroke:var(--mint); stroke-width:2.2; stroke-linejoin:round}
+.cube .f{fill:rgba(25,211,162,.10); stroke:var(--mint); stroke-width:2.2; stroke-linejoin:round}
+
+/* Plan */
+.plan{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px}
+.ph{background:var(--paper); border:1px solid var(--line); border-radius:16px; padding:16px; display:grid; gap:8px; align-content:start}
+.ph .when{font-family:var(--mono); font-size:12px; font-weight:600; color:var(--mute)}
+.ph h3{font-size:1.12rem; line-height:1.2; font-weight:900}
+.ph p{font-size:.9rem; color:var(--ink-2)}
+.ph.first{background:var(--navy); color:var(--on-navy); border-color:var(--navy)}
+.ph.first .when{color:var(--mint)}
+.ph.first p{color:var(--on-navy-2)}
+
+/* Cuentas */
+.math{display:grid; gap:10px}
+.mrow{display:grid; grid-template-columns:minmax(0,1fr) auto; gap:6px 18px; align-items:baseline; padding:12px 0; border-bottom:1px dashed var(--line)}
+.mrow .what{font-size:.95rem; color:var(--ink-2)}
+.mrow .what b{color:var(--ink)}
+.mrow .what code{font-family:var(--mono); font-size:12.5px; color:var(--mute); display:block; margin-top:3px; white-space:normal}
+.mrow .res{font-weight:900; font-size:1.15rem; white-space:nowrap}
+.mrow.sum .res{color:var(--mint-text); font-size:1.4rem}
+.s{font-family:var(--mono); font-size:11px; font-weight:600; color:var(--mint-text)}
+details{margin-top:14px; border:1px solid var(--line); border-radius:14px; background:var(--cream)}
+summary{cursor:pointer; padding:12px 16px; font-weight:800; font-size:.95rem; list-style-position:inside}
+.tbl{overflow-x:auto; padding:0 6px 8px}
+table.sup{width:100%; border-collapse:collapse; font-size:.88rem; min-width:32rem}
+table.sup th, table.sup td{text-align:left; padding:8px 10px; border-top:1px solid var(--line); vertical-align:top}
+table.sup th{font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--mute)}
+table.sup td:first-child{font-family:var(--mono); font-weight:600; color:var(--mint-text); white-space:nowrap}
+
+/* Agencia */
+.agency{display:grid; grid-template-columns:auto minmax(0,1fr); gap:16px; align-items:center}
+.agency .plus{width:54px; height:54px; border-radius:16px; background:var(--mint); color:var(--mint-ink); display:grid; place-items:center; font-size:30px; font-weight:900}
+.agency p{color:var(--ink-2)}
+.agency p b{color:var(--ink)}
+
+/* Reunión */
+.meet{display:grid; grid-template-columns:auto minmax(0,1fr) auto; gap:18px 28px; align-items:center; background:linear-gradient(120deg, var(--navy), #0B2E2B); color:var(--on-navy); border:1px solid rgba(25,211,162,.45); border-radius:24px; padding:clamp(20px,3vw,32px)}
+.meet .ten{text-align:center}
+.meet .ten .n{font-size:clamp(5rem,11vw,7rem); line-height:.82; font-weight:900; color:var(--mint); letter-spacing:-.05em; text-shadow:0 0 30px rgba(25,211,162,.45)}
+.meet .ten .m{font-size:15px; font-weight:900; letter-spacing:.4em; margin:8px -.4em 0 0}
+.meet h2{font-size:clamp(1.3rem,2.6vw,1.7rem); line-height:1.15; font-weight:900}
+.meet ul{margin:10px 0 0; padding:0; list-style:none; display:grid; gap:6px; color:var(--on-navy-2); font-size:.97rem}
+.meet li b{color:var(--on-navy)}
+.meet li::before{content:"✓"; color:var(--mint); font-weight:900; margin-right:8px}
+.meet .side{display:grid; gap:10px; justify-items:center}
+.meet .side p{font-size:.85rem; color:var(--on-navy-3); text-align:center}
+.close{text-align:center; font-size:clamp(1.3rem,3vw,1.75rem); line-height:1.15; font-weight:900; letter-spacing:-.01em}
+.close em{color:var(--mint-text)}
+.close small{display:block; margin-top:6px; font-size:1rem; font-weight:600; color:var(--mute)}
+.signature{display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px 20px; border-top:1px solid var(--line); padding-top:16px; font-size:.95rem}
+.signature b{font-weight:800}
+.signature span{color:var(--mute)}
+footer{padding-block:24px 30px; font-size:.82rem; color:var(--on-navy-3)}
+.bar{position:fixed; left:0; right:0; bottom:0; z-index:5; background:rgba(10,20,36,.96); border-top:1px solid rgba(25,211,162,.35);
+  padding:10px max(14px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(14px, env(safe-area-inset-left, 0px))}
+.bar a{display:block; max-width:34rem; margin:0 auto; background:var(--mint); color:var(--mint-ink); font-weight:900; font-size:16px; text-align:center; text-decoration:none; border-radius:12px; padding:13px}
+
+@media (max-width: 960px){
+  .journey{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .plan, .strengths{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width: 760px){
+  body{font-size:16px}
+  .hero, .cards3, .charts, .facts, .pillars, .web3d, .meet{grid-template-columns:minmax(0,1fr)}
+  .journey, .plan{grid-template-columns:minmax(0,1fr)}
+  .strengths{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .row, .axis{grid-template-columns:5.2rem minmax(0,1fr) 5.8rem; gap:.45rem}
+  .val small{display:block}
+  .total{grid-template-columns:minmax(0,1fr)}
+  .meet .ten{display:flex; align-items:baseline; gap:12px; justify-content:center}
+  .meet .ten .m{margin:0}
+  .cube{max-width:180px}
+}
+@media (max-width: 460px){
+  .strengths{grid-template-columns:minmax(0,1fr)}
+}
+</style>
+</head><body>
+<style>
+/* Portada de Fipod: ranking que sube del 7.º al 1.º puesto */
+.rank{display:block; width:100%; height:auto; margin-top:16px}
+.rank .r{fill:rgba(255,255,255,.06); stroke:rgba(255,255,255,.14)}
+.rank .t{fill:var(--on-navy-3); font:600 11px var(--mono)}
+.rank .me rect{fill:var(--mint)} .rank .me text{fill:var(--mint-ink); font:900 12px var(--sans)}
+@media (prefers-reduced-motion: no-preference){ .rank .me{animation:sube 7s cubic-bezier(.45,0,.25,1) 1s infinite} }
+@keyframes sube{0%,18%{transform:translateY(0)} 52%,78%{transform:translateY(-138px)} 100%{transform:translateY(0)}}
+.nofound{display:grid; grid-template-columns:6.4rem minmax(0,1fr); gap:.6rem; align-items:center; margin-top:4px; font-size:.9rem; color:var(--ink-2)}
+.nofound b{color:var(--ink)}
+.nofound span:last-child{border:1.5px dashed #C9502E; border-radius:8px; padding:6px 10px; color:#9A3412; font-weight:800}
+.row.me .fill{background:#C9502E} .row.me .lab b{color:#9A3412}
+</style>
+
+<div class="bg" aria-hidden="true"></div>
+
+<div class="wrap">
+  <div class="in">
+    <div class="top"><div>SMART COMPOUND <b>·</b> <b>META TECH PROVIDER</b></div><div class="chip">PARA CLÍNICA FIPOD</div></div>
+
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Propuesta para Tamara · noviembre de 2026</p>
+        <h1>Fipod ya es la <em>mejor valorada</em>. Ahora, que sea la <em>primera que se encuentra</em></h1>
+        <p class="sub">Más pacientes. Que vuelvan. <span>Y la gestión, en automático.</span></p>
+        <p class="lead">Tamara, hemos analizado Fipod a fondo: <b>vuestra ficha de Google, vuestras reseñas, cómo se pide cita y cómo salís frente a las clínicas de Chamberí</b>. La clínica es de 4,9 estrellas. Lo que falta es el sistema que <b>convierta esa reputación en agenda llena</b>.</p>
+        <div class="btns">
+          <a class="btn" href="https://cal.com/smart-compound/reunion-negocio" target="_blank" rel="noopener">RESERVAR 10 MINUTOS<small>Elige tú el día y la hora</small></a>
+          <a class="btn ghost" href="#potencial">Ver el potencial</a>
+        </div>
+      </div>
+      <aside class="potential" aria-label="Potencial estimado">
+        <p class="k">POTENCIAL ESTIMADO A 6 MESES</p>
+        <p class="big num">+1.450 €<small>más al mes en consultas</small></p>
+        <p>Unos <b>17.400 € al año</b> a ese ritmo, y unas <b>10 horas al mes</b> de teléfono y WhatsApp que pasan a ir solas. Las cuentas, con todos los supuestos, más abajo.</p>
+        <svg class="rank" viewBox="0 0 320 170" role="img" aria-label="Fipod sube del séptimo al primer puesto en Google">
+          <g>
+            <rect class="r" x="10" y="4" width="300" height="18" rx="5"/><text class="t" x="20" y="17">1.º</text>
+            <rect class="r" x="10" y="27" width="300" height="18" rx="5"/><text class="t" x="20" y="40">2.º</text>
+            <rect class="r" x="10" y="50" width="300" height="18" rx="5"/><text class="t" x="20" y="63">3.º</text>
+            <rect class="r" x="10" y="73" width="300" height="18" rx="5"/><text class="t" x="20" y="86">4.º</text>
+            <rect class="r" x="10" y="96" width="300" height="18" rx="5"/><text class="t" x="20" y="109">5.º</text>
+            <rect class="r" x="10" y="119" width="300" height="18" rx="5"/><text class="t" x="20" y="132">6.º</text>
+          </g>
+          <g class="me"><rect x="10" y="142" width="300" height="20" rx="5"/><text x="20" y="157">CLÍNICA FIPOD · 4,9 ★ · 142 reseñas</text></g>
+        </svg>
+      </aside>
+    </header>
+  </div>
+</div>
+
+<div class="wrap">
+<main class="in sheet">
+
+  <!-- POTENCIAL -->
+  <section class="mintband" id="potencial" aria-labelledby="h-pot">
+    <div class="sec-h"><h2 id="h-pot">Lo que Fipod puede ganar</h2><span class="tg">Y lo que lo hace posible</span></div>
+    <div class="cards3">
+      <div class="ncard"><span class="tag">Más pacientes</span><p class="bigline"><em>+8 pacientes</em> nuevos al mes</p><p class="sm">Saliendo arriba cuando alguien busca podólogo o fisioterapeuta en Chamberí, con web propia y cita online.</p></div>
+      <div class="ncard"><span class="tag">Que vuelvan</span><p class="bigline"><em>+10 revisiones</em> al mes</p><p class="sm">Cada paciente recibe su recordatorio de revisión cuando le toca, sin que nadie tenga que acordarse de llamarle.</p></div>
+      <div class="ncard"><span class="tag">Gestión en automático</span><p class="bigline"><em>-9 huecos</em> vacíos al mes</p><p class="sm">Confirmación y recordatorio de cita por WhatsApp, y un asistente que contesta y da citas aunque estéis en consulta.</p></div>
+    </div>
+    <div class="total">
+      <span class="n num">≈ 1.450 €/mes</span>
+      <p class="t">más a los 6 meses, contando ya los pacientes que no siguen<span>Unos 17.400 € al año a ese ritmo. Son estimaciones: las ajustamos con vuestros números en la reunión.</span></p>
+    </div>
+  </section>
+
+  <!-- LO QUE YA TENÉIS -->
+  <section aria-labelledby="h-bien">
+    <div class="sec-h"><h2 id="h-bien">Lo difícil ya lo tenéis</h2><span class="tg">Lo que hemos visto</span></div>
+    <div class="strengths">
+      <div class="st"><span class="v num">4,9 ★<small> · 142</small></span><p><mark>142 reseñas en Google</mark>, casi todas de cinco estrellas y muy recientes.</p></div>
+      <div class="st"><span class="v num">80</span><p>Opiniones <mark>de cita verificada en Doctoralia</mark>, solo en la ficha de Sandra.</p></div>
+      <div class="st"><span class="v num">30</span><p>Reseñas que <mark>nombran a Tamara</mark>. Los pacientes vuelven por la persona: «voy cada dos semanas y me trata Tamara».</p></div>
+      <div class="st"><span class="v txt">Podología + fisio</span><p>Quiropodia, estudio de la pisada, Indiba, punción seca y rehabilitación <mark>bajo el mismo techo</mark>.</p></div>
+    </div>
+  </section>
+
+  <!-- POSICIONAMIENTO -->
+  <section class="block" aria-labelledby="h-pos">
+    <div class="sec-h"><h2 id="h-pos">Cómo os encuentra hoy Google</h2><span class="tg">Búsquedas en Google Maps · 16-nov-2026</span></div>
+    <p class="intro">La reputación ya está. Pero Google no ordena solo por estrellas: <b>también mira la web, las categorías y la actividad de la ficha</b>. Por eso <mark>Fipod sale por detrás de clínicas con la cuarta parte de reseñas</mark>, y en fisioterapia directamente no aparece.</p>
+    <div class="charts">
+      <figure class="chart" style="margin:0">
+        <h3>«podólogo Chamberí»</h3>
+        <p class="cap">Orden en que salen y reseñas de cada una.</p>
+        <div class="bars" role="list">
+          <div class="row" role="listitem"><span class="lab"><b>1.º</b>Podoactiva Olavide</span><div class="track"><span class="fill" style="width:41.78%"></span></div><span class="val num">188 <small>4,6 ★</small></span></div>
+          <div class="row" role="listitem"><span class="lab"><b>2.º</b>Idónneo</span><div class="track"><span class="fill" style="width:9.56%"></span></div><span class="val num">43 <small>5,0 ★</small></span></div>
+          <div class="row" role="listitem"><span class="lab"><b>3.º</b>Happy Foot</span><div class="track"><span class="fill" style="width:6.44%"></span></div><span class="val num">29 <small>5,0 ★</small></span></div>
+          <div class="row" role="listitem"><span class="lab"><b>4.º</b>C. B. San Martín</span><div class="track"><span class="fill" style="width:8.67%"></span></div><span class="val num">39 <small>4,4 ★</small></span></div>
+          <div class="row" role="listitem"><span class="lab"><b>5.º</b>Clínica Piqueras</span><div class="track"><span class="fill" style="width:98.89%"></span></div><span class="val num">445 <small>4,7 ★</small></span></div>
+          <div class="row" role="listitem"><span class="lab"><b>6.º</b>Podología Canal</span><div class="track"><span class="fill" style="width:4.44%"></span></div><span class="val num">20 <small>5,0 ★</small></span></div>
+          <div class="row me" role="listitem"><span class="lab"><b>7.º</b>Clínica Fipod</span><div class="track"><span class="fill" style="width:31.56%"></span></div><span class="val num">142 <small>4,9 ★</small></span></div>
+          <div class="axis" aria-hidden="true"><span></span><div><span style="left:0">0</span><span style="left:33.33%">150</span><span style="left:66.66%">300</span><span style="left:100%">450</span></div><span></span></div>
+        </div>
+      </figure>
+      <figure class="chart" style="margin:0">
+        <h3>«fisioterapeuta Chamberí»</h3>
+        <p class="cap">Las 8 primeras. Mismo tipo de búsqueda.</p>
+        <div class="bars" role="list">
+          <div class="row" role="listitem"><span class="lab"><b>1.º</b>FisioSpace Génova</span><div class="track"><span class="fill" style="width:84.38%"></span></div><span class="val num">405 <small>4,9 ★</small></span></div>
+          <div class="row" role="listitem"><span class="lab"><b>2.º</b>Kora Physios</span><div class="track"><span class="fill" style="width:17.5%"></span></div><span class="val num">84 <small>4,8 ★</small></span></div>
+          <div class="row" role="listitem"><span class="lab"><b>3.º</b>Fisiohome</span><div class="track"><span class="fill" style="width:40%"></span></div><span class="val num">192 <small>4,9 ★</small></span></div>
+          <div class="row" role="listitem"><span class="lab"><b>4.º</b>Idónneo</span><div class="track"><span class="fill" style="width:8.96%"></span></div><span class="val num">43 <small>5,0 ★</small></span></div>
+          <div class="row" role="listitem"><span class="lab"><b>5.º</b>Fisiomoncloa</span><div class="track"><span class="fill" style="width:96.04%"></span></div><span class="val num">461 <small>4,9 ★</small></span></div>
+          <div class="row" role="listitem"><span class="lab"><b>6.º</b>Clínica Fixus</span><div class="track"><span class="fill" style="width:21.67%"></span></div><span class="val num">104 <small>5,0 ★</small></span></div>
+          <div class="row" role="listitem"><span class="lab"><b>7.º</b>Centro Valle36</span><div class="track"><span class="fill" style="width:12.5%"></span></div><span class="val num">60 <small>4,8 ★</small></span></div>
+          <div class="row" role="listitem"><span class="lab"><b>8.º</b>Esp. Vallehermoso</span><div class="track"><span class="fill" style="width:6.46%"></span></div><span class="val num">31 <small>4,9 ★</small></span></div>
+          <div class="axis" aria-hidden="true"><span></span><div><span style="left:0">0</span><span style="left:33.33%">160</span><span style="left:66.66%">320</span><span style="left:100%">480</span></div><span></span></div>
+        </div>
+        <p class="nofound"><b>Fipod</b><span>No aparece entre las 8 primeras</span></p>
+      </figure>
+    </div>
+    <div class="facts">
+      <p class="fact"><b>Más reseñas que 4 de los 6</b>que salen por delante en podología. El problema no es la reputación: es cómo la lee Google.</p>
+      <p class="fact"><b>Sin web en la ficha</b>Google no tiene una página de Fipod que enseñar para «fascitis plantar», «uña encarnada» o «punción seca».</p>
+      <p class="fact"><b>Fisioterapia, invisible</b>Hacéis fisioterapia, pero quien la busca en Chamberí encuentra otras ocho clínicas antes.</p>
+    </div>
+  </section>
+
+  <!-- FUGAS -->
+  <section aria-labelledby="h-fugas">
+    <div class="sec-h"><h2 id="h-fugas">Dónde se escapan pacientes hoy</h2><span class="tg">El camino de quien os busca</span></div>
+    <ol class="journey">
+      <li class="step"><span class="st-k">Os busca</span><h3>Sale antes otra clínica</h3><p>Séptimos en podología y <mark>fuera de la lista en fisioterapia</mark>, aunque tengáis mejores reseñas que casi todas.</p></li>
+      <li class="step"><span class="st-k">Quiere cita</span><h3>Teléfono o Doctoralia</h3><p>Sin web, la cita online pasa por Doctoralia, que <mark>enseña otros podólogos cercanos</mark> en la misma página.</p></li>
+      <li class="step"><span class="st-k">Llama o escribe</span><h3>Estáis en consulta</h3><p>De 10 a 14 y de 16 a 20, con las manos ocupadas. <mark>Lo que llega en plena sesión, de noche o en fin de semana, espera</mark>, y otra clínica contesta antes.</p></li>
+      <li class="step"><span class="st-k">Tiene la cita</span><h3>Huecos que se pierden</h3><p>Siempre hay <mark>una parte de las citas que se olvida</mark> y, si nadie confirma a tiempo, el hueco ya no se llena.</p></li>
+      <li class="step"><span class="st-k">Después</span><h3>La revisión, a la memoria</h3><p>La quiropodia, las plantillas y la fisio tienen revisión. <mark>Si nadie la recuerda, el paciente la deja pasar</mark> o la hace en otro sitio.</p></li>
+    </ol>
+  </section>
+
+  <!-- LO QUE IMPLEMENTAMOS -->
+  <section aria-labelledby="h-impl">
+    <div class="sec-h"><h2 id="h-impl">Lo que implementamos en Fipod</h2><span class="tg">Posicionar · fidelizar · gestionar</span></div>
+    <div class="pillars">
+      <article class="pillar">
+        <span class="tag">Posicionar y captar</span>
+        <h3>Más <em>pacientes</em></h3>
+        <ul>
+          <li><span><b>Web propia</b> con una página por tratamiento (fascitis plantar, uña encarnada, estudio de la pisada, plantillas, Indiba, punción seca…), para salir en Google por cada uno.</span></li>
+          <li><span><b>Ficha de Google a fondo</b>: categoría de fisioterapia, servicios, fotos, novedades y botón de pedir cita.</span></li>
+          <li><span><b>Cita online propia</b>, 24 horas, en la web y en Google, sin depender solo de Doctoralia.</span></li>
+          <li><span><b>Reseñas en Google</b>: petición automática después de la visita, para que la reputación siga creciendo donde más pesa.</span></li>
+          <li><span>Todo con vuestro <b>número de registro sanitario</b> y textos que cumplen la normativa de publicidad sanitaria.</span></li>
+        </ul>
+        <p class="impact"><em>+8 pacientes</em> nuevos al mes</p>
+      </article>
+      <article class="pillar">
+        <span class="tag">Fidelizar</span>
+        <h3>Pacientes que <em>vuelven</em></h3>
+        <ul>
+          <li><span><b>Recordatorio de revisión</b> según el tratamiento: quiropodia, plantillas, seguimiento de fisio.</span></li>
+          <li><span><b>Pacientes que llevan meses sin venir</b>: un mensaje personal con un hueco para volver.</span></li>
+          <li><span><b>Seguimiento tras la primera visita</b> y al terminar un tratamiento, con los consejos de Tamara.</span></li>
+          <li><span><b>Encuesta de satisfacción</b> para saber qué mejorar antes de que nadie lo diga en público.</span></li>
+        </ul>
+        <p class="impact"><em>+10 revisiones</em> al mes: <em>+350 €/mes</em></p>
+      </article>
+      <article class="pillar">
+        <span class="tag">Gestionar</span>
+        <h3>La agenda, <em>en automático</em></h3>
+        <ul>
+          <li><span><b>Asistente de WhatsApp oficial de Meta</b>: contesta 24/7 precios, horarios y cómo llegar, da y mueve citas, y os pasa lo clínico.</span></li>
+          <li><span><b>Confirmación y recordatorio</b> de cada cita por WhatsApp, con opción de cambiarla.</span></li>
+          <li><span><b>Panel de Fipod</b>: citas, de dónde viene cada paciente, revisiones pendientes y reseñas.</span></li>
+          <li><span><b>Resumen semanal en tu WhatsApp</b>, con lo que importa.</span></li>
+        </ul>
+        <p class="impact"><em>-9 huecos</em> y <em>+10 horas</em> al mes</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- WEB 3D -->
+  <section class="web3d" aria-labelledby="h-web">
+    <div>
+      <span class="tag dark" style="border:1px solid rgba(25,211,162,.5)">Web nueva</span>
+      <h2 id="h-web" style="margin-top:12px">¿Y si Fipod tuviera una <em>web en 3D</em> a la altura de la clínica, con <em>todas las integraciones de Meta</em>?</h2>
+      <p>Una portada con <b>un pie en 3D que enseña la pisada al hacer scroll</b>, vuestros tratamientos uno a uno, vuestras reseñas reales, la cita online en dos pasos y <b>WhatsApp conectado por la vía oficial de Meta</b>. Preparada para salir cuando alguien busque podólogo o fisioterapeuta en Chamberí. <b>Os la preparamos para que la veáis antes de decidir.</b></p>
+      <ul><li>Portada 3D propia</li><li>Una página por tratamiento</li><li>Cita online</li><li>WhatsApp oficial de Meta</li><li>Vuestras 142 reseñas</li></ul>
+    </div>
+    <svg class="cube" viewBox="0 0 200 200" aria-hidden="true">
+      <path class="f" d="M100 22 L170 60 L100 98 L30 60 Z"/>
+      <path class="l" d="M30 60 V 140 L100 178 V 98 M170 60 V 140 L100 178"/>
+      <path class="l" d="M74 150 C 62 128, 66 100, 84 96 C 100 92, 108 108, 104 126 C 101 140, 96 152, 74 150 Z" opacity=".9"/>
+      <circle class="f" cx="92" cy="86" r="5"/><circle class="f" cx="104" cy="88" r="4"/><circle class="f" cx="113" cy="93" r="3.5"/>
+    </svg>
+  </section>
+
+  <!-- PLAN -->
+  <section aria-labelledby="h-plan">
+    <div class="sec-h"><h2 id="h-plan">Cómo lo ponemos en marcha</h2><span class="tg">A vuestro ritmo, sin plazos rígidos</span></div>
+    <div class="plan">
+      <div class="ph first"><span class="when">WEB Y GOOGLE</span><h3>Que os encuentren</h3><p>La web con cita online y la ficha de Google a fondo, también para fisioterapia.</p></div>
+      <div class="ph"><span class="when">GESTIONAR</span><h3>La agenda sola</h3><p>WhatsApp oficial con el asistente, confirmaciones y recordatorios de cita.</p></div>
+      <div class="ph"><span class="when">FIDELIZAR</span><h3>Que vuelvan</h3><p>Recordatorios de revisión, pacientes inactivos, reseñas y encuesta.</p></div>
+      <div class="ph"><span class="when">MEDIR</span><h3>Vuestros números</h3><p>Panel y resumen semanal: qué funciona y dónde seguir creciendo.</p></div>
+    </div>
+    <p class="intro" style="margin-top:14px">Lo ponemos en marcha en paralelo y a vuestro ritmo. <b>El orden y los tiempos los decidimos juntos en la reunión.</b></p>
+  </section>
+
+  <!-- CUENTAS -->
+  <section class="block" aria-labelledby="h-cuentas">
+    <div class="sec-h"><h2 id="h-cuentas">Las cuentas</h2><span class="tg">Con los supuestos a la vista</span></div>
+    <div class="math">
+      <div class="mrow"><p class="what"><b>Pacientes nuevos que llegan por Google y la web</b><code>8 nuevos al mes (S2) × 6 meses × 60 % que siguen (S3) ≈ 29 que vuelven cada 2 meses (S4) → 14,4 visitas + 8 primeras visitas = 22,4 visitas × 35 € (S1)</code></p><span class="res num">≈ 784 €/mes</span></div>
+      <div class="mrow"><p class="what"><b>Revisiones que hoy se olvidan y vuelven con el recordatorio</b><code>10 revisiones al mes (S5) × 35 € (S1)</code></p><span class="res num">≈ 350 €/mes</span></div>
+      <div class="mrow"><p class="what"><b>Huecos que no se pierden gracias a la confirmación</b><code>300 citas al mes (S6) × 6 % que no se presenta (S7) = 18 huecos; se evita la mitad: 9 × 35 € (S1)</code></p><span class="res num">≈ 315 €/mes</span></div>
+      <div class="mrow sum"><p class="what"><b>Total a los 6 meses</b><code>784 + 350 + 315 = 1.449 €/mes · a ese ritmo, × 12 ≈ 17.400 € al año</code></p><span class="res num">≈ 1.450 €/mes</span></div>
+      <div class="mrow"><p class="what"><b>Horas de teléfono y WhatsApp que pasan a ir solas</b><code>150 conversaciones al mes para dar, confirmar o mover citas (S8) × 4 min</code></p><span class="res num">≈ 10 h/mes</span></div>
+    </div>
+    <details>
+      <summary>Ver todos los supuestos</summary>
+      <div class="tbl">
+        <table class="sup num">
+          <thead><tr><th>Ref.</th><th>Supuesto</th><th>De dónde sale</th></tr></thead>
+          <tbody>
+            <tr><td>S1</td><td>35 € por visita</td><td>En Doctoralia, la primera visita de podología cuesta 31 €, el estudio de la pisada 55 € y las ortesis 30 €. La sesión de fisioterapia, sin precio publicado, la estimamos en ese mismo orden</td></tr>
+            <tr><td>S2</td><td>8 pacientes nuevos más al mes</td><td>Estimación al pasar a los primeros puestos en podología y a aparecer en fisioterapia en Chamberí</td></tr>
+            <tr><td>S3</td><td>El 60 % de los pacientes nuevos sigue viniendo</td><td>Estimación</td></tr>
+            <tr><td>S4</td><td>Una visita cada 2 meses de media</td><td>Quiropodia y revisiones; hay pacientes que vienen cada dos semanas (vuestras reseñas)</td></tr>
+            <tr><td>S5</td><td>10 revisiones al mes que hoy se olvidan</td><td>Estimación</td></tr>
+            <tr><td>S6</td><td>Unas 300 citas al mes</td><td>Estimación con dos profesionales; la ajustamos con vuestra agenda</td></tr>
+            <tr><td>S7</td><td>El 6 % de las citas no se presenta sin recordatorio</td><td>Estimación</td></tr>
+            <tr><td>S8</td><td>150 conversaciones al mes para citas, a 4 min cada una</td><td>Estimación</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+  </section>
+
+  <!-- DOCTORALIA -->
+  <section class="agency" aria-label="Lo que ya usáis">
+    <span class="plus" aria-hidden="true">+</span>
+    <p><b>Sumamos a lo que ya tenéis, no lo sustituimos.</b> Doctoralia puede seguir trayendo pacientes; nosotros hacemos que <b>Google y vuestra propia web</b> os traigan los vuestros, sin una lista de otras clínicas al lado, y que <b>cada paciente vuelva</b>. Trabajamos con vuestro número, vuestra agenda y vuestra ficha de Google.</p>
+  </section>
+
+  <!-- REUNIÓN -->
+  <section class="meet" id="reunion" aria-labelledby="h-meet">
+    <div class="ten"><div class="n">10</div><div class="m">MINUTOS</div></div>
+    <div>
+      <h2 id="h-meet">La reunión en la que te enseñamos todo lo que podemos hacer en Fipod</h2>
+      <ul>
+        <li><b>Cómo salir arriba</b> en Google en podología y en fisioterapia.</li>
+        <li><b>Qué implementaríamos</b> y por dónde empezar.</li>
+        <li><b>El presupuesto</b>, ajustado a lo que elijáis.</li>
+      </ul>
+    </div>
+    <div class="side">
+      <a class="btn" href="https://cal.com/smart-compound/reunion-negocio" target="_blank" rel="noopener">ELEGIR DÍA Y HORA<small>Por videollamada, desde el móvil</small></a>
+      <p>Cuando mejor os venga. Sin compromiso.</p>
+    </div>
+  </section>
+
+  <p class="close">MÁS PACIENTES, QUE VUELVAN Y <em>LA AGENDA EN AUTOMÁTICO</em><small>Seguimos en contacto por WhatsApp 👍</small></p>
+  <div class="signature"><span><b>Héctor Escobar</b> · Smart Compound (Meta Tech Provider)</span><span class="num">854 78 87 07 · WhatsApp</span></div>
+</main>
+</div>
+
+<footer class="wrap">
+  <div class="in">Fuentes, consultadas el 16 de noviembre de 2026: ficha de Google Maps de Clínica Fipod y búsquedas «podólogo chamberí madrid» y «fisioterapeuta chamberí madrid» en Google Maps (el orden puede variar según desde dónde se busque), y la ficha de Doctoralia de Sandra Lougedo Pino en Clínica FIPOD. Todas las cifras de potencial son estimaciones con los supuestos indicados.</div>
+</footer>
+
+<div class="bar"><a href="https://cal.com/smart-compound/reunion-negocio" target="_blank" rel="noopener">Reservar la reunión · 10 minutos</a></div>
+
+</body></html>
