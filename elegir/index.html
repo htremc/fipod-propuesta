@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0B100D">
+<title>Fipod · Elige tu opción</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 48'%3E%3Crect x='.5' y='.5' width='29' height='47' rx='14.5' fill='%230f1512'/%3E%3Cpath d='M6.5 26.5 13 20.4v18.4a2 2 0 0 1-2 2H8.5a2 2 0 0 1-2-2Z' fill='%2370e898'/%3E%3Cpath d='M16 8.6c5 0 7.4 5.8 7.4 11.5v14.6c0 3.7-2.4 5.6-5 5.6H16Z' fill='%2370e898'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<!-- Página de elección de la propuesta Black Friday de Fipod. Generada por ~/CMPND_WEBS/fipod-demo/correo.mjs desde elegir.plantilla.html: no editar a mano. -->
+<style>
+:root{--fondo:#0B100D;--panel:#121A15;--panel2:#18221C;--linea:#25332B;--tinta:#0F1512;--menta:#70E898;--menta2:#C9F7D9;--coral:#FF6B3D;--texto:#DDE6E0;--gris:#93A79C;--display:'Barlow',Arial,sans-serif;--sans:'Manrope',Arial,sans-serif}
+*{box-sizing:border-box}
+html{color-scheme:dark}
+body{margin:0;background:var(--fondo);color:var(--texto);font-family:var(--sans);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(900px 500px at 85% -10%,rgba(112,232,152,.16),transparent 60%),radial-gradient(700px 420px at -10% 110%,rgba(255,107,61,.12),transparent 60%)}
+a{color:var(--menta)}
+.envoltura{max-width:620px;margin:0 auto;padding:22px 16px 48px}
+.marca{display:flex;align-items:center;justify-content:space-between;gap:12px;font-family:var(--display);font-weight:800;letter-spacing:2px;font-size:14px;color:#fff}
+.marca b{color:var(--menta)}
+.marca .x{color:#6F8278;margin:0 6px}
+.pildora{display:inline-block;white-space:nowrap;background:var(--coral);color:#fff;border-radius:99px;padding:5px 11px;font-size:11px;letter-spacing:1.5px;font-weight:800;font-family:var(--sans)}
+.kicker{margin:30px 0 6px;font-size:12px;letter-spacing:3px;font-weight:800;color:var(--menta)}
+h1{margin:0;font-family:var(--display);font-weight:800;font-size:clamp(32px,8vw,44px);line-height:1.04;letter-spacing:-.5px;color:#fff}
+h1 span{color:var(--menta)}
+.sub{margin:10px 0 0;color:var(--gris)}
+.pestanas{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:24px 0 0;padding:6px;background:var(--panel);border:1px solid var(--linea);border-radius:16px}
+.pestanas button{appearance:none;border:0;border-radius:11px;padding:10px 6px;background:transparent;color:var(--texto);font:700 14px/1.2 var(--sans);cursor:pointer}
+.pestanas button small{display:block;margin-top:3px;font-weight:600;font-size:12px;color:var(--gris)}
+.pestanas button[aria-pressed="true"]{background:var(--menta);color:var(--tinta)}
+.pestanas button[aria-pressed="true"] small{color:#1E4D31}
+.pestanas button:focus-visible,.boton:focus-visible,.enlace:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
+.tarjeta{position:relative;margin:16px 0 0;padding:22px;background:var(--panel);border:2px solid var(--linea);border-radius:20px;overflow:hidden}
+.tarjeta.destacada{border-color:var(--menta);background:linear-gradient(180deg,#0E2A1B 0%,var(--panel) 70%)}
+.tarjeta.recomendada{border-color:var(--coral)}
+.cinta{display:inline-block;margin:0 0 12px;border-radius:99px;padding:5px 11px;font-size:11px;letter-spacing:1.5px;font-weight:800}
+.cinta.menta{background:var(--menta);color:var(--tinta)}
+.cinta.coral{background:var(--coral);color:#fff}
+.tarjeta h2{margin:0;font-family:var(--display);font-weight:800;font-size:26px;line-height:1.1;color:#fff}
+.precio{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin:14px 0 0}
+.precio s{color:var(--gris);font-weight:700;font-size:18px}
+.precio strong{font-family:var(--display);font-size:48px;line-height:1;color:var(--menta);letter-spacing:-1px}
+.chip{display:inline-block;border-radius:99px;padding:4px 10px;font-size:12px;font-weight:800;letter-spacing:.5px;background:var(--coral);color:#fff;white-space:nowrap}
+.chip.menta{background:var(--menta);color:var(--tinta)}
+.mes{margin:4px 0 0;color:var(--texto)}
+.mes b{color:#fff}
+.lineas{list-style:none;margin:16px 0 0;padding:0;border-top:1px solid var(--linea)}
+.lineas li{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--linea)}
+.lineas .que{font-size:14px;color:var(--texto)}
+.lineas .cuanto{text-align:right;white-space:nowrap;font-size:15px}
+.lineas .cuanto s{color:var(--gris);margin-right:6px;font-size:13px}
+.lineas .cuanto b{color:#fff}
+.lineas .chip{margin-left:6px}
+h3{margin:28px 0 4px;font-family:var(--display);font-weight:800;font-size:22px;color:#fff}
+.nota{margin:0;color:var(--gris);font-size:14px}
+.datos{display:grid;gap:10px;margin:14px 0 0}
+.datos label{display:block;font-size:13px;font-weight:700;color:var(--texto)}
+.datos input{width:100%;margin-top:5px;padding:12px 13px;border-radius:12px;border:1px solid var(--linea);background:var(--panel2);color:#fff;font:500 16px/1.3 var(--sans)}
+.datos input:focus{outline:2px solid var(--menta);border-color:transparent}
+.boton{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:6px 10px;text-align:center;width:100%;margin:18px 0 0;padding:17px 18px;border:0;border-radius:14px;background:var(--menta);color:var(--tinta);font:800 17px/1.2 var(--sans);letter-spacing:.3px;text-decoration:none;cursor:pointer}
+.boton.coral{background:var(--coral);color:#fff}
+.boton.borde{background:transparent;color:#fff;border:2px solid var(--linea)}
+.aviso{display:none;margin:12px 0 0;padding:14px 16px;border-radius:14px;background:rgba(112,232,152,.1);border:1px solid rgba(112,232,152,.35);font-size:14px}
+.aviso.visible{display:block}
+.copiado{color:var(--menta);font-weight:800}
+.pasos{list-style:none;margin:12px 0 0;padding:0;counter-reset:p}
+.pasos li{position:relative;padding:0 0 14px 46px;counter-increment:p}
+.pasos li::before{content:counter(p);position:absolute;left:0;top:0;width:32px;height:32px;border-radius:50%;background:var(--menta);color:var(--tinta);font-weight:800;display:grid;place-items:center}
+.pasos li:last-child::before{background:var(--coral);color:#fff}
+.pasos b{color:#fff}
+.pie{margin:30px 0 0;padding:18px 0 0;border-top:1px solid var(--linea);font-size:13px;color:var(--gris)}
+.pie a{font-weight:700}
+@media (prefers-reduced-motion:no-preference){.tarjeta{animation:entra .35s ease-out}@keyframes entra{from{opacity:.0;transform:translateY(6px)}to{opacity:1;transform:none}}}
+</style>
+</head>
+<body>
+<main class="envoltura">
+  <div class="marca"><span>FIP<b>O</b>D<span class="x">×</span><b>COMPOUND</b></span><span class="pildora">BLACK FRIDAY · 30-NOV</span></div>
+
+  <p class="kicker">TU ELECCIÓN · CLÍNICA FIPOD</p>
+  <h1>Confírmala en <span>un toque</span></h1>
+  <p class="sub">Puedes cambiar de opción aquí mismo. Al confirmar, te mandamos el enlace de pago y empezamos el onboarding esta semana.</p>
+
+  <div class="pestanas" role="group" aria-label="Opciones">
+    <button type="button" data-o="web">Web<small>2.000 €</small></button>
+    <button type="button" data-o="pack">Web + SEO<small>Recomendada</small></button>
+    <button type="button" data-o="completo">Completo<small>−70 %</small></button>
+  </div>
+
+  <section class="tarjeta" id="tarjeta" aria-live="polite"></section>
+
+  <h3>Tus datos de facturación</h3>
+  <p class="nota">Opcional: si los pones aquí, van en el mensaje y la factura sale bien a la primera.</p>
+  <div class="datos">
+    <label>Razón social<input id="razon" autocomplete="organization" placeholder="Nombre de la clínica o sociedad"></label>
+    <label>CIF / NIF<input id="cif" autocomplete="off" placeholder="B12345678"></label>
+    <label>Dirección fiscal<input id="dir" autocomplete="street-address" placeholder="Calle, número, CP y ciudad"></label>
+  </div>
+
+  <a class="boton" id="enviar" href="#">✉️&nbsp; Confirmar por correo</a>
+  <div class="aviso" id="avisoCorreo">Se abre tu correo con el mensaje ya escrito para <b>ecom.compound@gmail.com</b>: solo te falta pulsar <b>Enviar</b>.<br>¿No se ha abierto? Pulsa el botón de abajo, copia el mensaje y pégalo en un correo a esa dirección.</div>
+  <button class="boton borde" id="copiar" type="button">📋&nbsp; Copiar el mensaje</button>
+  <a class="boton borde" href="tel:+34854788707">📞&nbsp; Prefiero llamar: 854 78 87 07</a>
+
+  <h3>Qué pasa después</h3>
+  <ol class="pasos">
+    <li><b>Te mandamos el enlace de pago</b>, con la factura a nombre de la clínica.</li>
+    <li><b>Nos pasáis fotos e información</b> (fotos reales, productos, tratamientos): va incluido en el precio.</li>
+    <li><b>Onboarding terminado esta semana:</b> web publicada en vuestro dominio y todo funcionando para captar pacientes, ahorrar horas y tener la gestión en automático.</li>
+  </ol>
+
+  <p class="pie">Todos los precios, + IVA. Oferta Black Friday válida hasta el lunes 30 de noviembre. Permanencia de 12 meses.<br>
+  Volver a ver <a href="https://htremc.github.io/clinica-fipod/">la web</a> · <a href="https://htremc.github.io/fipod-demo/">la demo del asistente</a> · Héctor Escobar, COMPOUND (Meta Tech Provider).</p>
+</main>
+
+<script>
+(function () {
+  var OPCIONES = {"web":{"nombre":"la Web","titulo":"La web de Fipod, terminada y publicada","total":"2.000 €","antes":"5.000 €","dto":"−60 %","mes":"99 €/mes","mesAntes":"","mesQue":"servidor, dominio y cambios ilimitados","lineas":[["Web 3D a medida, en vuestro dominio","5.000 €","2.000 €","−60 %"],["Mantenimiento: servidor, dominio y cambios","","99 €/mes",""]]},"pack":{"nombre":"el Pack Web + SEO","titulo":"La web y que os encuentren en Google","total":"2.000 €","antes":"5.499 €","dto":"−64 %","mes":"349 €/mes","mesAntes":"398 €/mes","mesQue":"web + SEO local","estilo":"recomendada","cinta":"★ RECOMENDADA","cintaColor":"coral","lineas":[["Web 3D a medida","5.000 €","2.000 €","−60 %"],["Implantación del SEO","499 €","0 €","EN EL PACK"],["Web + SEO local, al mes","398 €","349 €","−12 %"]]},"completo":{"nombre":"el Pack completo (Web + SEO + Asistente de IA)","titulo":"Web + SEO + asistente de IA en vuestro WhatsApp","total":"2.249 €","antes":"7.499 €","dto":"−70 %","mes":"548 €/mes","mesAntes":"647 €/mes","mesQue":"web + SEO + asistente","estilo":"destacada","cinta":"🔥 MÁXIMO AHORRO","cintaColor":"menta","lineas":[["Web 3D a medida (sólo en este pack)","5.000 €","1.750 €","−65 %"],["Implantación del SEO","499 €","0 €","EN EL PACK"],["Asistente de IA, puesta en marcha","2.000 €","499 €","−75 %"],["Web + SEO + asistente, al mes","647 €","548 €","−15 %"]]}};
+  var BUZON = "ecom.compound@gmail.com";
+  var $ = function (id) { return document.getElementById(id); };
+  var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
+  var q = new URLSearchParams(location.search).get("o");
+  var sel = OPCIONES[q] ? q : "pack";
+
+  function pintar() {
+    var o = OPCIONES[sel];
+    document.querySelectorAll(".pestanas button").forEach(function (b) { b.setAttribute("aria-pressed", b.dataset.o === sel ? "true" : "false"); });
+    var t = $("tarjeta");
+    t.className = "tarjeta" + (o.estilo ? " " + o.estilo : "");
+    var h = "";
+    if (o.cinta) h += '<span class="cinta ' + o.cintaColor + '">' + esc(o.cinta) + "</span>";
+    h += "<h2>" + esc(o.titulo) + "</h2>";
+    h += '<p class="precio"><s>' + esc(o.antes) + "</s><strong>" + esc(o.total) + '</strong><span class="chip">' + esc(o.dto) + "</span></p>";
+    h += '<p class="mes"><b>+ ' + esc(o.mes) + "</b>" + (o.mesAntes ? " en vez de " + esc(o.mesAntes) : "") + " · " + esc(o.mesQue) + "</p>";
+    h += '<ul class="lineas">';
+    o.lineas.forEach(function (l) {
+      h += '<li><span class="que">' + esc(l[0]) + '</span><span class="cuanto">' + (l[1] ? "<s>" + esc(l[1]) + "</s>" : "") + "<b>" + esc(l[2]) + "</b>" + (l[3] ? '<span class="chip' + (l[3].indexOf("%") < 0 ? " menta" : "") + '">' + esc(l[3]) + "</span>" : "") + "</span></li>";
+    });
+    h += "</ul>";
+    t.innerHTML = h;
+    if (history.replaceState) history.replaceState(null, "", "?o=" + sel);
+    $("avisoCorreo").classList.remove("visible");
+  }
+
+  function mensaje() {
+    var o = OPCIONES[sel];
+    var v = function (id) { return $(id).value.trim(); };
+    return {
+      asunto: "Fipod elige: " + o.nombre,
+      cuerpo: [
+        "Hola, Héctor:", "",
+        "Elegimos " + o.nombre + ". Oferta Black Friday: " + o.total + " + " + o.mes + ", + IVA.",
+        "Mandadnos el enlace de pago para empezar el onboarding esta semana.", "",
+        "Datos de facturación:",
+        "- Razón social: " + v("razon"),
+        "- CIF/NIF: " + v("cif"),
+        "- Dirección fiscal: " + v("dir"), "",
+        "Un saludo,", "Tamara"
+      ].join("\r\n")
+    };
+  }
+
+  document.querySelectorAll(".pestanas button").forEach(function (b) {
+    b.addEventListener("click", function () { sel = b.dataset.o; pintar(); });
+  });
+
+  $("enviar").addEventListener("click", function (e) {
+    var m = mensaje();
+    this.href = "mailto:" + BUZON + "?subject=" + encodeURIComponent(m.asunto) + "&body=" + encodeURIComponent(m.cuerpo);
+    $("avisoCorreo").classList.add("visible");
+  });
+
+  $("copiar").addEventListener("click", function () {
+    var m = mensaje(), boton = this;
+    var texto = "Para: " + BUZON + "\r\nAsunto: " + m.asunto + "\r\n\r\n" + m.cuerpo;
+    var hecho = function () { boton.innerHTML = "<span class=\"copiado\">✓ Copiado: pégalo en un correo a " + esc(BUZON) + "</span>"; };
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(texto).then(hecho, function () { aMano(texto); hecho(); });
+    } else { aMano(texto); hecho(); }
+  });
+
+  function aMano(texto) {
+    var a = document.createElement("textarea");
+    a.value = texto; a.setAttribute("readonly", ""); a.style.position = "fixed"; a.style.opacity = "0";
+    document.body.appendChild(a); a.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(a);
+  }
+
+  pintar();
+})();
+</script>
+</body>
+</html>
