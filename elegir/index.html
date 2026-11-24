@@ -48,6 +48,8 @@ h1 span{color:var(--menta)}
 .chip.menta{background:var(--menta);color:var(--tinta)}
 .mes{margin:4px 0 0;color:var(--texto)}
 .mes b{color:#fff}
+.mes .cuota{font-family:var(--display);font-size:24px;letter-spacing:-.3px}
+.mes .aparte{color:var(--gris);font-size:14px;white-space:nowrap}
 .lineas{list-style:none;margin:16px 0 0;padding:0;border-top:1px solid var(--linea)}
 .lineas li{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--linea)}
 .lineas .que{font-size:14px;color:var(--texto)}
@@ -113,7 +115,7 @@ h3{margin:28px 0 4px;font-family:var(--display);font-weight:800;font-size:22px;c
     <li><b>Onboarding terminado esta semana:</b> web publicada en vuestro dominio y todo funcionando para captar pacientes, ahorrar horas y tener la gestión en automático.</li>
   </ol>
 
-  <p class="pie">Todos los precios, + IVA. Oferta Black Friday válida hasta el lunes 30 de noviembre. Permanencia de 12 meses.<br>
+  <p class="pie">Todos los precios, + IVA. Oferta Black Friday válida hasta el lunes 30 de noviembre. Permanencia de 12 meses, con opción de renegociarla a los 6 meses.<br>
   Volver a ver <a href="https://htremc.github.io/clinica-fipod/">la web</a> · <a href="https://htremc.github.io/fipod-demo/">la demo del asistente</a> · Héctor Escobar, COMPOUND (Meta Tech Provider).</p>
 </main>
 
@@ -135,7 +137,7 @@ h3{margin:28px 0 4px;font-family:var(--display);font-weight:800;font-size:22px;c
     if (o.cinta) h += '<span class="cinta ' + o.cintaColor + '">' + esc(o.cinta) + "</span>";
     h += "<h2>" + esc(o.titulo) + "</h2>";
     h += '<p class="precio"><s>' + esc(o.antes) + "</s><strong>" + esc(o.total) + '</strong><span class="chip">' + esc(o.dto) + "</span></p>";
-    h += '<p class="mes"><b>+ ' + esc(o.mes) + "</b>" + (o.mesAntes ? " en vez de " + esc(o.mesAntes) : "") + " · " + esc(o.mesQue) + "</p>";
+    h += '<p class="mes"><b class="cuota">+ ' + esc(o.mes) + "</b> · " + esc(o.mesQue) + (o.mesAntes ? ' <span class="aparte">(por separado, <s>' + esc(o.mesAntes) + "</s>)</span>" : "") + "</p>";
     h += '<ul class="lineas">';
     o.lineas.forEach(function (l) {
       h += '<li><span class="que">' + esc(l[0]) + '</span><span class="cuanto">' + (l[1] ? "<s>" + esc(l[1]) + "</s>" : "") + "<b>" + esc(l[2]) + "</b>" + (l[3] ? '<span class="chip' + (l[3].indexOf("%") < 0 ? " menta" : "") + '">' + esc(l[3]) + "</span>" : "") + "</span></li>";
